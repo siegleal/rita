@@ -11,7 +11,7 @@ router.post('/setcolor', function(req, res, next) {
   var ip = req.body.ip;
   var color = req.body.color.slice(1);
   var options = { args: [color.slice(0, 2), color.slice(2, 4), color.slice(4, 6), ip] };
-  PythonShell.run('C:\\Users\\Andrew\\rita\\arduinoEthernet.py', options, function(err, results) {
+  PythonShell.run('C:\\Users\\Andrew\\rita\\python_scripts\\arduinoEthernet.py', options, function(err, results) {
     if(err) {
       return res.json(err);
     }
