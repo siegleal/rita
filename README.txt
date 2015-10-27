@@ -11,3 +11,7 @@ Steps
 4. Run "npm i"
 5. Run "npm start" 
 6. Go to http://localhost:3000/
+
+FAQ (or some reasons I sat scratching my head)
+Q: Why doesn't npm start work on debian
+A: node installs to /usr/bin/nodejs, not /usr/bin/node as one would expect.  Create a symlink from /usr/bin.nodejs -> /usr/bin/node
