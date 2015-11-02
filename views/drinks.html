@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Place Drink Order</title>
+    <title>RITA</title>
     <link rel="stylesheet" href="stylesheets/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/bootstrap-colorpicker.min.css">
@@ -12,12 +12,13 @@
 
     <div class="container">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#orderPage">Order</a></li>
-            <li><a data-toggle="tab" href="#makeDrinkMenu">Make</a></li>
+            <li class="active"><a data-toggle="tab" href="#orderTab">Order</a></li>
+            <li><a data-toggle="tab" href="#createRecipeTab">Recipes</a></li>
+            <li><a data-toggle="tab" href="#settingsTab"><span class="glyphicon glyphicon-wrench"></span></a></li>
         </ul>
 
         <div class="tab-content">
-            <div id="orderPage" class="tab-pane fade in active">
+            <div id="orderTab" class="tab-pane fade in">
                 <h3>What'll it be?!</h3>
                 <form class="order-form">
                     <label>Name:</label>
@@ -34,9 +35,9 @@
                     <button type="submit" class="btn btn-default">Order</button>
                 </form>
             </div>
-            <div id="makeDrinkMenu" class="tab-pane fade">
-                <h3>Make Drink</h3>
-                <form class="make-recipe-form">
+            <div id="createRecipeTab" class="tab-pane fade">
+                <h3>Create Recipe</h3>
+                <form class="create-recipe-form">
                     <label>Drink name:</label>
                     <input class="drinkName" />
 
@@ -52,6 +53,32 @@
                     </div>
                     <button type="submit" class="btn btn-default">Create</button>
                 </form>
+            </div>
+            <div id="settingsTab" class="tab-pane fade in active">
+                <h3>Settings</h3>
+
+                <form class="settings-form">
+                    <label>Drink 1:</label>
+                    <input class="drink1Name" />
+                    <div class="checkbox">
+                        <label><input id="drink1IsMixerCbx" type="checkbox" value="">Mixer?</label>
+                    </div>
+
+                    <label>Drink 2:</label>
+                    <input class="drink2Name" />
+                    <div class="checkbox">
+                        <label><input id="drink2IsMixerCbx" type="checkbox" value="">Mixer?</label>
+                    </div>
+
+                    <label>Drink 3:</label>
+                    <input class="drink3Name" />
+                    <div class="checkbox">
+                        <label><input id="drink3IsMixerCbx" type="checkbox" value="">Mixer?</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Save</button>
+                </form>
+
             </div>
         </div>
     </div>

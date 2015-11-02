@@ -53,7 +53,7 @@ $(function () {
         });
     });
 
-    $('.make-recipe-form').submit(function (e) {
+    $('.create-recipe-form').submit(function (e) {
         e.preventDefault();
         var name = $('.drinkName').val();
         var drinks = [];
@@ -84,6 +84,37 @@ $(function () {
             }
         }).done(function (data) {
             console.log(data);
+        }).fail(function (err) {
+            console.log(err);
+        });
+    });
+
+    $('.settings-form').submit(function (e) {
+        e.preventDefault();
+
+        var drink1Name = $('.drink1Name').val();
+        var drink2Name = $('.drink2Name').val();
+        var drink3Name = $('.drink3Name').val();
+        var drink1IsMixer = $('#drink1IsMixerCbx').prop('checked');
+        var drink2IsMixer = $('#drink2IsMixerCbx').prop('checked');
+        var drink3IsMixer = $('#drink3IsMixerCbx').prop('checked');
+
+        var drink1 = { name: drink1Name, isMixer: drink1IsMixer };
+        var drink2 = { name: drink2Name, isMixer: drink2IsMixer };
+        var drink3 = { name: drink3Name, isMixer: drink3IsMixer };
+
+        var drinkSettings = [drink1, drink2, drink3];
+
+        var settings = {drinkSettings: drinkSettings};
+
+        console.log("posting these settings");
+        console.log(settings);
+
+        $.ajax({
+            type: "POST",   
+            url: '/settings',
+            data: { data: settings },
+        }).done(function (data) {
         }).fail(function (err) {
             console.log(err);
         });

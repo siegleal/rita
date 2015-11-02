@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var PythonShell = require('python-shell');
+var settingsFileName = 'settings.json';
 
 router.get('/lights', function(req, res, next) {
   res.render('index');
@@ -10,7 +11,7 @@ router.post('/setcolor', function(req, res, next) {
   var ip = req.body.ip;
   var color = req.body.color.slice(1);
   var options = { args: [color.slice(0, 2), color.slice(2, 4), color.slice(4, 6), ip] };
-  PythonShell.run('C:\\Users\\Luke\\Documents\\GitHub\\rita\\python_scripts\\arduinoEthernet.py', options, function(err, results) {
+  PythonShell.run('python_scripts\\arduinoEthernet.py', options, function(err, results) {
       if(err) {
           return res.json(err);
       }
@@ -78,5 +79,22 @@ router.post('/createRecipe', function (req, res, next) {
     console.log(req.body);
 
 });
+
+router.post('/settings', function (req, res, next) {
+
+    console.log("Settings posted");
+    console.log(JSON.stringify(req.body.data, null, '\t'));
+
+    var fs = require('fs');
+    fs.writeFile(settingsFileName, JSON.stringify(req.body.data, null, '\t'), function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("JSON saved to " + settingsFileName);
+        }
+    });
+
+});
+
 
 module.exports = router;
