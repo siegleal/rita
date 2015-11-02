@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Place Drink Order</title>
+    <link rel="stylesheet" href="stylesheets/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body class="body-content">
+
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#orderPage">Order</a></li>
+            <li><a data-toggle="tab" href="#makeDrinkMenu">Make</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="orderPage" class="tab-pane fade in active">
+                <h3>What'll it be?!</h3>
+                <form class="order-form">
+                    <label>Name:</label>
+                    <input class="name" />
+                    <div class="checkbox">
+                        <label><input id="drink1cbx" type="checkbox" value=""><div class="drink1"></div></label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input id="drink2cbx" type="checkbox" value=""><div class="drink2"></div></label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input id="drink3cbx" type="checkbox" value=""><div class="drink3"></div></label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Order</button>
+                </form>
+            </div>
+            <div id="makeDrinkMenu" class="tab-pane fade">
+                <h3>Make Drink</h3>
+                <form class="make-recipe-form">
+                    <label>Drink name:</label>
+                    <input class="drinkName" />
+
+                    Ingredients:
+                    <div class="checkbox">
+                        <label><input id="ingredient1cbx" type="checkbox" value=""><div class="ingredient1"></div></label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input id="ingredient2cbx" type="checkbox" value=""><div class="ingredient2"></div></label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input id="ingredient3cbx" type="checkbox" value=""><div class="ingredient3"></div></label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="javascripts/things.js"></script>
+</body>
+</html>
