@@ -3,16 +3,29 @@ $(function () {
     $(document).ready(function (e) {
         $.ajax({
             type: "GET",
-            url: '/getdrinks'
+            url: '/settings'
         }).done(function (data) {
+
+            console.log("got settings");
             console.log(data);
 
-            $('.drink1').text(data.drinks[0].name);
-            $('.drink2').text(data.drinks[1].name);
-            $('.drink3').text(data.drinks[2].name);
-            $('.ingredient1').text(data.drinks[0].name);
-            $('.ingredient2').text(data.drinks[1].name);
-            $('.ingredient3').text(data.drinks[2].name);
+            var drinkSettings = data.drinkSettings;
+
+            // Populate order form.
+            $('.drink1').text(drinkSettings[0].name);
+            $('.drink2').text(drinkSettings[1].name);
+            $('.drink3').text(drinkSettings[2].name);
+            $('.ingredient1').text(drinkSettings[0].name);
+            $('.ingredient2').text(drinkSettings[1].name);
+            $('.ingredient3').text(drinkSettings[2].name);
+
+            // Populate settings form.
+            $('.drink1Name').val(drinkSettings[0].name);
+            $('#drink1IsMixerCbx').prop('checked', drinkSettings[0].isMixer === "true");
+            $('.drink2Name').val(drinkSettings[1].name);
+            $('#drink2IsMixerCbx').prop('checked', drinkSettings[1].isMixer === "true");
+            $('.drink3Name').val(drinkSettings[2].name);
+            $('#drink3IsMixerCbx').prop('checked', drinkSettings[2].isMixer === "true");
 
         }).fail(function (err) {
             console.log(err);

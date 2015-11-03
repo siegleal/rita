@@ -1,2 +1,16 @@
 {
+	"drinkSettings": [
+		{
+			"name": "ab",
+			"isMixer": "false"
+		},
+		{
+			"name": "bc",
+			"isMixer": "true"
+		},
+		{
+			"name": "cd",
+			"isMixer": "false"
+		}
+	]
 }

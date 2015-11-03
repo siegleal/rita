@@ -27,19 +27,6 @@ router.get('/', function(req, res, next) {
   res.render('drinks');
 });
 
-router.get('/getdrinks', function (req, res, next) {
-
-    var drink1 = { index: 0, name:"Whiskey" };
-    var drink2 = { index: 1, name:"Vodka" };
-    var drink3 = { index: 2, name:"Gin" };
-
-    var drinks = {
-        drinks: [drink1, drink2, drink3]
-    };
-
-    res.send(drinks);
-});
-
 router.post('/order', function(req, res, next) {
 
   console.log("Order posted");
@@ -96,6 +83,18 @@ router.post('/settings', function (req, res, next) {
             console.log("JSON saved to " + settingsFileName);
         }
     });
+
+});
+
+router.get('/settings', function (req, res, next) {
+
+    console.log("Reading Settings");
+    var fs = require('fs');
+    var settings = JSON.parse(fs.readFileSync(settingsFileName, 'utf8'));
+
+    console.log(settings);
+
+    res.send(settings);
 
 });
 
