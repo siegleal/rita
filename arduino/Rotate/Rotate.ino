@@ -22,6 +22,7 @@ boolean alreadyConnected = false;
 //LiquidCrystal lcd(8, 13, 9, 4, 5, 6, 7);
 
 void rotateToDegree(int);
+void sendEnd();
 
 void setup() {
   // put your setup code here, to run once:
@@ -68,22 +69,26 @@ void loop() {
       //client.println("Hello, client!");
       alreadyConnected = true;
     }
-    Serial.print("Available: ");
-    Serial.println(client.available());
     
     if (client.available() >= 1) {
       
       uint32_t rotateIndex = client.read();
 
+      Serial.print("Data: ");
+      Serial.println(rotateIndex);
+
       switch(rotateIndex){
       case 0:
         rotateToDegree(60);
+        sendEnd();
         break;
       case 1:
         rotateToDegree(180);
+        sendEnd();
         break;
       case 2:
         rotateToDegree(300);
+        sendEnd();
         break;   
       default:
         Serial.println("NOOP");
@@ -91,6 +96,10 @@ void loop() {
      }
     }
   }  
+}
+
+void sendEnd(){
+  server.write('0');
 }
 
 void rotateToDegree(int deg){

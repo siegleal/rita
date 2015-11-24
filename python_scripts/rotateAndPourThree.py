@@ -19,5 +19,7 @@ if rotate == 255:
 bytestring = struct.pack('!B', rotate)
 
 tn.write(bytestring)
+result = tn.read_some();
+print result;
 tn.close()
 
