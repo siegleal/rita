@@ -20,6 +20,7 @@
     "history": "^1.12.5",
     "jquery": "^2.1.4",
     "keymirror": "~0.1.0",
+    "lodash": "^3.10.1",
     "morgan": "^1.6.1",
     "object-assign": "^1.0.0",
     "react": "^0.14.0",
