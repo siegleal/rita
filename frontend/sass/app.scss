@@ -1,3 +1,4 @@
+@import 'base';
 @import 'colors';
 @import 'mixins';
 
@@ -38,4 +39,51 @@ html, body {
   flex: 1;
   list-style: none;
   padding: 0;  
+}
+
+.recipe-card {
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.add-recipe-card {
+  cursor: pointer;
+  
+  &:hover {
+    background-color: #bff0b8;
+  }
+  
+  &:active {
+    background-color: #9ff098;
+  }
+}
+
+.add-recipe-icon {
+  display: flex;
+  font-size: 2em;
+  justify-content: center;
+}
+
+.add-ingredient-icon {
+  cursor: pointer;
+  font-size: 2em;
+  height: 34px;
+  line-height: 34px;
+  padding: 0 10px;
+  
+  &.fa-plus-circle {
+    color: #3c763d;
+  }
+  
+  &.fa-minus-circle {
+    color: #d9534f;
+  }
+  
+  &.disabled {
+    color: #555;
+    cursor: not-allowed;
+  }
 }

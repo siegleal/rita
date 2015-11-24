@@ -1,11 +1,13 @@
 var React = require('react');
+var ListGroupItem = require('react-bootstrap').ListGroupItem;
+var IngredientsCard = require('./ingredientsCard.jsx');
 
 var RecipeCard = React.createClass({
   render: function() {
     return (
-      <div className="recipe-card">
-        <span>{this.props.name}</span>
-      </div>
+      <ListGroupItem header={this.props.name} className="recipe-card">
+        <IngredientsCard ingredients={this.props.ingredients} />
+      </ListGroupItem>
     );
   }
 });

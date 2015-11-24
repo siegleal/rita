@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', router());
 
-var port = 3000;
+var port = 3001;
 app.listen(port);
 console.log("Server running on port: " + port);
 

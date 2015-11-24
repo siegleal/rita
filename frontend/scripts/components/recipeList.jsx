@@ -1,4 +1,7 @@
 var React = require('react');
+var ListGroup = require('react-bootstrap').ListGroup;
+var _ = require('lodash');
+var AddRecipeCard = require('./addRecipeCard.jsx');
 var RecipeCard = require('./recipeCard.jsx');
 var recipesActions = require('../actions/recipesActions');
 var recipesStore = require('../stores/recipesStore');
@@ -25,18 +28,18 @@ var RecipeList = React.createClass({
 
   render: function() {
     var recipes = this.state.recipes;
-    var recipeCards = [];
+    var recipeCards = [<AddRecipeCard key="ADD_RECIPE" />];
     
-    Object.keys(recipes).forEach(function(recipe) {
-      var recipeObj = recipes[recipe];
-      var name = recipeObj.displayName;
-      recipeCards.push(<li key={name}><RecipeCard name={name} /></li>);
+    _.forOwn(recipes, function(recipe) {
+      var name = recipe.displayName;
+      var ingredients = recipe.recipe;
+      recipeCards.push(<RecipeCard key={"_" + name} name={name} ingredients={ingredients} />);
     });
   
     return (
-      <ul className="recipe-list">
+      <ListGroup className="recipe-list">
         {recipeCards}
-      </ul>
+      </ListGroup>
     );
   }
 });
