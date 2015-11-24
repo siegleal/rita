@@ -9,6 +9,7 @@ var getSettings = require('./settings/get');
 var getRecipes = require('./recipes/get');
 var postRecipes = require('./recipes/post');
 var putRecipes = require('./recipes/put');
+var deleteRecipes = require('./recipes/delete');
 
 
 router.get('/', index);
@@ -19,6 +20,7 @@ router.post('/settings', createSettings);
 router.get('/settings', getSettings);
 router.get('/recipes', getRecipes); //read
 router.post('/recipes', postRecipes); //create
-router.put('/recipes/:id', putRecipes); //create
+router.put('/recipes/:id', putRecipes); //update
+router.delete('/recipes/:id', deleteRecipes); //delete
 
 module.exports = router;
