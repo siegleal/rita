@@ -4,6 +4,7 @@ import telnetlib
 
 if len(sys.argv) < 5:
     print "Too few arguments"
+    print "Usage: arduinoEthernet <red> <green> <blue> <hostname>"
     exit(1)
 
 
