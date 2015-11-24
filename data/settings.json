@@ -1,0 +1,13 @@
+{
+  "gin": {
+    "position": 0
+  },
+
+  "whiskey": {
+    "position": 1
+  },
+
+  "rum": {
+    "position": 2
+  }
+}
