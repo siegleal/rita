@@ -36,8 +36,8 @@ byte mac[] = {
   0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED
 };
 
-IPAddress ip(192, 168, 1, 126);
-IPAddress myDns(192,168,1, 1);
+IPAddress ip(192, 168, 86, 145);
+IPAddress myDns(192,168,86, 1);
 
 // telnet defaults to port 23
 EthernetServer server(23);
